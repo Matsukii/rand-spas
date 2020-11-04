@@ -319,7 +319,7 @@
             methods:{
 
                 getFromFile(){
-                    fetch('https://gist.githubusercontent.com/Matsukii/3df2a718fc83c0b04ae9404750117434/raw/5bafde832954d8ff11953b0d63c577149974e628/GI_chars.json', {
+                    fetch('https://rand-xi.now.sh/GI/chars.json', {
                         method:'GET'
                     }).then(j => j.json()).then(ch =>{
                         if(confirm("current data will be cleared")){
