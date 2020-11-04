@@ -371,7 +371,12 @@
             computed:{
                 downloadable(){
                     if(this.chrs.length > 0){
-                        return `data:text/json;charset=utf-8,${encodeURIComponent(JSON.stringify(this.chrs))}`
+                        return `data:text/json;charset=utf-8,${
+                            encodeURIComponent(JSON.stringify({
+                                chars: this.chrs,
+                                enums:this.enums
+                            }))
+                        }`
                     }
                     return `data:text/json;charset=utf-8,${encodeURIComponent(JSON.stringify(this.cha))}`
                     //return `data:text/json;charset=utf-8,${encodeURIComponent(JSON.stringify(JSON.parse(this.cha)))}`
