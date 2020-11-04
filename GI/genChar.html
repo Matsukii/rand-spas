@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <title>genChar</title>
+
+
+    <style>
+
+        .light{
+            --bg-white: #FFFFFF;
+            --bg-light: #F1F1F1;
+            --bg-dark:  #333333;
+            --bg-dark-2: #393b40;
+
+            --text-light:  #CECECE;
+            --text-medium: #373534;
+            --text-dark:   #4e4d4b;
+            --text-accent: #f4c780;
+
+            --card-bg-1: #f0ede9;
+
+            --warn: #EE2220;
+        }
+
+        *{
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', sans-serif;
+        }
+        .body{
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+        }
+
+        .input-card{
+            background: var(--card-bg-1);
+            height: fit-content;
+            border-radius: 5px;
+            padding: 2px 20px;
+        }
+
+        .labeled-in{
+            max-width: 300px;
+            display: flex;
+            flex-direction: column;
+            margin-top: 10px;
+        }
+
+        .labeled-in label{
+            color: var(--text-medium);
+            position: absolute;
+
+        }
+
+        ul{
+            margin-top: 20px;
+            list-style: decimal;
+        }
+        li::marker{
+            font-size: 80%;
+            color: var(--text-medium);
+        }
+
+        .list-item{
+            display: flex;
+            cursor: pointer;
+            
+            padding: 5px 0px;
+            width: 300px;
+        }
+
+        .list-item:hover{
+            background-color: var(--bg-dark-2);
+            color: #f4c780;
+        }
+
+        .header{
+            color: var(--text-dark);
+        }
+        .inpt{
+            border: solid 1px;
+            border-radius: 5px;
+            padding: 5px 10px;
+            font-size: 100%;
+            background: var(--bg-white);
+        }
+        .btn{
+            background-color: var(--bg-dark-2);
+            color: var(--text-accent);
+            border: none;
+            border-radius: 5px;
+            width: 300px;
+            height: 50px;
+            font-size: 110%;
+            margin: 15px;
+            margin-left: 0;
+            cursor: pointer;
+        }
+        a[class="btn"]{
+            padding: 10px 20px;
+        }
+    </style>
+
+</head>
+<body class="light">
+    
+    <div id="app">
+
+        <div class="input-card">
+            <h3 class="c-header header">Char info</h3>
+            <button class="btn" @click="getFromFile" >get from git file?</button>
+            <br>
+            <button class="btn" @click="useJson = !useJson">Use JSON?</button>
+            <input type="text" v-if="useJson" class="inpt" placeholder="Paste JSON here" v-model="jsonInput">
+
+            <div class="labeled-in">
+                <label for="c-name" v-if="cha.name != ''">Name</label> <br>
+                <input type="text" class="inpt" id="c-name" v-model="cha.name" placeholder="name" >
+            </div>
+            
+            <div class="labeled-in">
+                <label for="c-stars" v-if="cha.stars != ''">Stars</label> <br>
+                <input type="number" class="inpt" id="c-stars" v-model="cha.stars" placeholder="stars" min="1" max="5">
+            </div>
+            
+            <div class="labeled-in">
+                <label for="c-element" v-if="cha.element != ''">element</label> <br>
+                <select v-model="cha.element" class="inpt" id="c-element">
+                    <option value="-1">Adaptive</option>
+                    <option v-for="(el, i) of enums.elements" :value="i">{{el}}</option>
+                </select>
+                
+                <!-- <input type="text" class="inpt" id="c-element" v-model="cha.element" placeholder="element" > -->
+            </div>
+            
+            <div class="labeled-in">
+                <label for="c-avatar" v-if="cha.avatar != ''">avatar</label> <br>
+                <input type="text" class="inpt" id="c-avatar" v-model="cha.avatar" placeholder="avatar Base64 or URL" >
+            </div>
+            
+           
+            
+            <!-- ! World loot drops -->
+            <div class="labeled-in">
+                <label for="c-worldLoot" v-if="cha.worldLoot != ''">worldLoot</label> <br>
+                <select v-model="cha.worldLoot" class="inpt" id="c-worldLoot">
+                    <option value="-1">Unspecified</option>
+                    <option v-for="(el, i) of enums.worldLoot" :value="i">{{el}}</option>
+                </select>
+
+                <!-- <input type="text" class="inpt" id="c-worldLoot" v-model="cha.worldLoot" placeholder="worldLoot" > -->
+            </div>
+            
+            <!-- ! monster drop -->
+            <div class="labeled-in">
+                <label for="c-monsterDrop" v-if="cha.drop.monster != ''">Monster drop</label> <br>
+                <select v-model="cha.drop.monster" class="inpt" id="c-monsterDrop">
+                    <option value="-1">Unspecified</option>
+                    <option v-for="(el, i) of enums.monsterDrop" :value="i">{{el}}</option>
+                </select>
+
+                <!-- <input type="text" class="inpt" id="c-monsterDrop" v-model="cha.drop.monster" placeholder="Monster drop" > -->
+            </div>
+
+
+             <!-- ! Talents -->
+             <div class="labeled-in">
+                <label for="c-talent" v-if="cha.talent != ''">talent</label> <br>
+                <select v-model="cha.talent" class="inpt" id="c-talent">
+                    <option value="-1">Unspecified</option>
+                    <option v-for="(el, i) of enums.talent" :value="i">{{el}}</option>
+                </select>
+                <!-- <input type="text" class="inpt" id="c-talent" v-model="cha.talent" placeholder="talent" > -->
+            </div>
+    
+            <!-- ! talent boss drop -->
+            <div class="labeled-in">
+                <label for="c-talentBoss" v-if="cha.drop.talentBoss != ''">Talent Boss drop</label> <br>
+                <select v-model="cha.drop.talentBoss" class="inpt" id="c-talentBoss">
+                    <option value="-1">Unspecified</option>
+                    <option v-for="(el, i) of enums.talentBoss" :value="i">{{el}}</option>
+                </select>
+
+                <!-- <input type="text" class="inpt" id="c-talentBoss" v-model="cha.drop.talentBoss" placeholder="Talent Boss drop" > -->
+            </div>
+
+            <button class="btn" v-if="!editing" @click="add('add')">Add</button>
+            <button class="btn" v-if="editing" @click="add(cha.id)">Save</button>
+            <br v-if="editing"> <button class="btn" v-if="editing" @click="clear()">Cancel</button>
+        </div>
+
+        <div class="list-container">
+            <hr>
+            <h3 class="header">List - click to edit</h3>
+            <a><i>'-1' = Unspecified</i></a>
+            <br><br>
+    
+            <a class="btn" target="blank" @click="debugBase64(downloadable)">open raw/download JSON</a>
+            
+            <ul>
+                <li>stars | name | element</li>
+                <li v-for="(char, i) in chrs" >
+                    <div @click="edit(char)" class="list-item" :style="char.stars == '-1' ? {color: 'var(--warn)'}:null">
+                        {{char.stars}}* : {{char.name}}, {{enums.elements[char.element]}} 
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+
+    </div>
+
+    <script>
+        app = new Vue({
+            el:"#app",
+            data:{
+                editing: false,
+                useJson: false,
+                timers:{
+                    jsonIn:''
+                },
+                cha:{
+                    name:"",
+                    stars:"",
+                    element:"0",
+                    avatar:"",
+                    talent:"0",
+                    drop:{
+                        monster:"0",
+                        talentBoss:"0"
+                    },
+                    worldLoot:"0"
+                },
+                jsonInput: '',
+                
+                blank:'',
+                chrs:[],
+
+                enums:{
+                    elements:[
+                        "Anemo",
+                        "Cryo",
+                        "Dendro",
+                        "Electro",
+                        "Geo",
+                        "Hydro",
+                        "Pyro",
+                    ],
+                    talent:[
+                        "Gold",
+                        "Diligence",
+                        "Ballad",
+                        "Freedom",
+                        "Prosperity",
+                        "Resistance",
+                    ],
+                    talentBoss:[
+                        "Dvalin's Claw",
+                        "Dvalin's Plume",
+                        "Dvalin's Sigh",
+                        "Ring of Boreas",
+                        "Spirit Locket of Boreas",
+                        "Tail of Boreas"
+                    ],
+                    monsterDrop:[
+                        "Fatui Insignias",
+                        "Hilichurl Arrowheads",
+                        "Hilichurl Masks",
+                        "Monster Drop",
+                        "Samachurl Scrolls",
+                        "Slime",
+                        "Treasure Hoarder Insignias",
+                        "Whopperflower Nectar"
+                    ],
+                    worldLoot:[
+                        "Calla Lily",
+                        "Cecilia",
+                        "Cor Lapis",
+                        "Dandelion Seed",
+                        "Glaze Lily",
+                        "Jueyun Chili",
+                        "Noctilus Jade",
+                        "Philanemo Mushroom",
+                        "Qingxin",
+                        "Silk Flower",
+                        "Small Lamp Grass",
+                        "Starconch",
+                        "Valberry",
+                        "Violetgrass",
+                        "Windwheel Aster",
+                        "Wolfhook",
+                        "World Loot"
+                    ]
+                }
+            },
+            watch:{
+                jsonInput(nw, old){
+                    if(this.timers.jsonIn) clearTimeout(this.timers.jsonIn);
+                    this.timers.jsonIn = setTimeout(()=>{
+                        if(confirm("current data will be cleared")){
+                            try{
+                                this.chrs = JSON.parse(nw)
+                            }
+                            catch(e){
+                                console.log("invalid JSON");
+                            }
+                        }
+                    }, 800)
+                }
+            },
+            created(){
+                if(localStorage.chrs != "" && typeof localStorage.chrs !== "undefined"){
+                    this.chrs = JSON.parse(localStorage.chrs)
+                }
+                this.blank = JSON.stringify(this.cha)
+            },
+            methods:{
+
+                getFromFile(){
+                    fetch('https://gist.githubusercontent.com/Matsukii/3df2a718fc83c0b04ae9404750117434/raw/5bafde832954d8ff11953b0d63c577149974e628/GI_chars.json', {
+                        method:'GET'
+                    }).then(j => j.json()).then(ch =>{
+                        if(confirm("current data will be cleared")){
+                            this.chrs = ch
+                        
+                        }
+                    })
+                },
+
+
+                genId(){
+                    return (Math.random()+1).toString(36).substr(7)
+                },
+                
+
+                clear(){
+                    this.editing = false;
+                    this.cha = JSON.parse(this.blank)
+                },
+                add(action){
+
+                    if(action == "add"){
+                        if(this.cha.name != ""){
+                            this.chrs.push({...this.cha, id: this.genId()})
+                            this.clear()
+                        }
+                    }
+                    else if(action != "add"){
+                        this.chrs.filter(c => c.id == action)[0] = this.cha;
+                        this.editing = false;
+                        this.clear()
+
+                    }
+                        localStorage.chrs = JSON.stringify(this.chrs)
+
+                },
+                
+                edit(item){
+                    this.editing = true;
+                    this.cha = item
+                },
+                // https://ourcodeworld.com/articles/read/682/what-does-the-not-allowed-to-navigate-top-frame-to-data-url-javascript-exception-means-in-google-chrome
+                debugBase64(base64URL = this.downloadable){
+                    var win = window.open();
+                    win.document.write('<iframe src="'+ base64URL+'"frameborder="0" style="border:0; top:0px; left:0px; bottom:0px; right:0px; width:100%; height:100%;"></iframe>');
+                }
+               
+            },
+            computed:{
+                downloadable(){
+                    if(this.chrs.length > 0){
+                        return `data:text/json;charset=utf-8,${encodeURIComponent(JSON.stringify(this.chrs))}`
+                    }
+                    return `data:text/json;charset=utf-8,${encodeURIComponent(JSON.stringify(this.cha))}`
+                    //return `data:text/json;charset=utf-8,${encodeURIComponent(JSON.stringify(JSON.parse(this.cha)))}`
+                }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,353 @@
+[
+    {
+        "id": "le216",
+        "name": "Amber",
+        "stars": 4,
+        "element": "6",
+        "avatar": "",
+        "talent": "3",
+        "drop": {
+            "monster": "1",
+            "talentBoss": "2"
+        },
+        "worldLoot": "10"
+    },
+    {
+        "id": "bxsk9",
+        "name": "Barbara",
+        "stars": "4",
+        "element": "5",
+        "avatar": "",
+        "talent": "3",
+        "drop": {
+            "monster": "4",
+            "talentBoss": "3"
+        },
+        "worldLoot": "7"
+    },
+    {
+        "id": "td785f",
+        "name": "Beidou",
+        "stars": "4",
+        "element": "3",
+        "avatar": "",
+        "talent": "0",
+        "drop": {
+            "monster": "6",
+            "talentBoss": "2"
+        },
+        "worldLoot": "6"
+    },
+    {
+        "id": "yv2q3",
+        "name": "Bennet",
+        "stars": "4",
+        "element": "6",
+        "avatar": "",
+        "talent": 5,
+        "drop": {
+            "monster": "6",
+            "talentBoss": "1"
+        },
+        "worldLoot": "14"
+    },
+    {
+        "id": "14kp3j",
+        "name": "Chongyun",
+        "stars": "4",
+        "element": "1",
+        "avatar": "",
+        "talent": "1",
+        "drop": {
+            "monster": "2",
+            "talentBoss": "2"
+        },
+        "worldLoot": 2
+    },
+    {
+        "id": "hpyuu",
+        "name": "Diluc",
+        "stars": "5",
+        "element": "6",
+        "avatar": "",
+        "talent": "4",
+        "drop": {
+            "monster": "0",
+            "talentBoss": "1"
+        },
+        "worldLoot": "10"
+    },
+    {
+        "id": "kca5y",
+        "name": "Diona",
+        "stars": "-1",
+        "element": "1",
+        "avatar": "",
+        "talent": "3",
+        "drop": {
+            "monster": "1",
+            "talentBoss": "-1"
+        },
+        "worldLoot": "0"
+    },
+    {
+        "id": "sftna",
+        "name": "Fischl",
+        "stars": "4",
+        "element": "3",
+        "avatar": "",
+        "talent": 2,
+        "drop": {
+            "monster": "1",
+            "talentBoss": "4"
+        },
+        "worldLoot": "10"
+    },
+    {
+        "name": "Jean",
+        "stars": "5",
+        "element": "0",
+        "avatar": "",
+        "talent": 5,
+        "drop": {
+            "monster": 2,
+            "talentBoss": 1
+        },
+        "worldLoot": 3,
+        "id": "ibpje"
+    },
+    {
+        "name": "Kaeya",
+        "stars": "4",
+        "element": 1,
+        "avatar": "",
+        "talent": 2,
+        "drop": {
+            "monster": 6,
+            "talentBoss": 4
+        },
+        "worldLoot": "0",
+        "id": "l2g8p"
+    },
+    {
+        "name": "Keqing",
+        "stars": "5",
+        "element": 3,
+        "avatar": "",
+        "talent": 4,
+        "drop": {
+            "monster": 7,
+            "talentBoss": 3
+        },
+        "worldLoot": 2,
+        "id": "u7p4l"
+    },
+    {
+        "name": "Klee",
+        "stars": "5",
+        "element": 6,
+        "avatar": "",
+        "talent": 3,
+        "drop": {
+            "monster": 4,
+            "talentBoss": 3
+        },
+        "worldLoot": 7,
+        "id": "xl3oxg"
+    },
+    {
+        "name": "Lisa",
+        "stars": "4",
+        "element": 3,
+        "avatar": "",
+        "talent": 2,
+        "drop": {
+            "monster": 5,
+            "talentBoss": "0"
+        },
+        "worldLoot": 12,
+        "id": "vjdse"
+    },
+    {
+        "name": "Mona",
+        "stars": "5",
+        "element": 5,
+        "avatar": "",
+        "talent": 5,
+        "drop": {
+            "monster": 7,
+            "talentBoss": 3
+        },
+        "worldLoot": 7,
+        "id": "iud24"
+    },
+    {
+        "name": "Ningguang",
+        "stars": "4",
+        "element": 4,
+        "avatar": "",
+        "talent": 4,
+        "drop": {
+            "monster": "0",
+            "talentBoss": 4
+        },
+        "worldLoot": 4,
+        "id": "fef0k"
+    },
+    {
+        "name": "Noelle",
+        "stars": "4",
+        "element": 4,
+        "avatar": "",
+        "talent": 5,
+        "drop": {
+            "monster": 2,
+            "talentBoss": "0"
+        },
+        "worldLoot": 12,
+        "id": "spgy2"
+    },
+    {
+        "name": "Qiqi",
+        "stars": "5",
+        "element": 1,
+        "avatar": "",
+        "talent": 4,
+        "drop": {
+            "monster": 4,
+            "talentBoss": 5
+        },
+        "worldLoot": 13,
+        "id": "zdjgs"
+    },
+    {
+        "name": "Razor",
+        "stars": "4",
+        "element": 3,
+        "avatar": "",
+        "talent": 5,
+        "drop": {
+            "monster": 2,
+            "talentBoss": "0"
+        },
+        "worldLoot": 15,
+        "id": "6tvl7"
+    },
+    {
+        "name": "Sucrose",
+        "stars": "4",
+        "element": "0",
+        "avatar": "",
+        "talent": 3,
+        "drop": {
+            "monster": 7,
+            "talentBoss": 4
+        },
+        "worldLoot": 14,
+        "id": "x5vg8"
+    },
+    {
+        "name": "Tartaglia",
+        "stars": "-1",
+        "element": 5,
+        "avatar": "",
+        "talent": 3,
+        "drop": {
+            "monster": "0",
+            "talentBoss": "-1"
+        },
+        "worldLoot": 11,
+        "id": "txm0t"
+    },
+    {
+        "name": "Traveler",
+        "stars": "5",
+        "element": "-1",
+        "avatar": "",
+        "talent": "-1",
+        "drop": {
+            "monster": 1,
+            "talentBoss": "-1"
+        },
+        "worldLoot": 14,
+        "id": "mqbjd"
+    },
+    {
+        "name": "Venti",
+        "stars": "5",
+        "element": "0",
+        "avatar": "",
+        "talent": 2,
+        "drop": {
+            "monster": 5,
+            "talentBoss": 5
+        },
+        "worldLoot": 1,
+        "id": "4t4et"
+    },
+    {
+        "name": "Xiangling",
+        "stars": "4",
+        "element": 6,
+        "avatar": "",
+        "talent": 1,
+        "drop": {
+            "monster": 5,
+            "talentBoss": "0"
+        },
+        "worldLoot": 5,
+        "id": "oe7cug"
+    },
+    {
+        "name": "Xiao",
+        "stars": "5",
+        "element": "0",
+        "avatar": "",
+        "talent": "-1",
+        "drop": {
+            "monster": 1,
+            "talentBoss": "-1"
+        },
+        "worldLoot": 8,
+        "id": "o5jh4"
+    },
+    {
+        "name": "Xingqiu",
+        "stars": "4",
+        "element": 5,
+        "avatar": "",
+        "talent": "0",
+        "drop": {
+            "monster": 2,
+            "talentBoss": 5
+        },
+        "worldLoot": 9,
+        "id": "c7lux"
+    },
+    {
+        "name": "Xinyang",
+        "stars": "-1",
+        "element": 6,
+        "avatar": "",
+        "talent": "0",
+        "drop": {
+            "monster": 6,
+            "talentBoss": "-1"
+        },
+        "worldLoot": 13,
+        "id": "aim2uh"
+    },
+    {
+        "name": "Zhongli",
+        "stars": "-1",
+        "element": 4,
+        "avatar": "",
+        "talent": "0",
+        "drop": {
+            "monster": 5,
+            "talentBoss": "-1"
+        },
+        "worldLoot": 2,
+        "id": "dh340f"
+    }
+]
