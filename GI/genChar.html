@@ -113,7 +113,7 @@
             <button class="btn" @click="getFromFile" >get from hosted json?</button>
             <br>
             <button class="btn" @click="useJson = !useJson">Use JSON?</button>
-            <input type="text" v-if="useJson" class="inpt" placeholder="Paste JSON here" v-model="jsonInput">
+            <input type="text" v-if="useJson" class="inpt" placeholder="Paste JSON array here" v-model="jsonInput">
 
             <div class="labeled-in">
                 <label for="c-name" v-if="cha.name != ''">Name</label> <br>
@@ -323,7 +323,7 @@
                         method:'GET'
                     }).then(j => j.json()).then(ch =>{
                         if(confirm("current data will be cleared")){
-                            this.chrs = ch
+                            this.chrs = ch.chars
                         
                         }
                     })
